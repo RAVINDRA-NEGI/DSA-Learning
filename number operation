@@ -1,0 +1,7 @@
+[num = 456
+count = 0
+while(num>0 or num !=0)
+  digit = num % 10;
+count = count *10 +digit
+num /= 10]
+  
