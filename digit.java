@@ -43,6 +43,9 @@ public class digit {
                     if(i%j == 0){
                         sum += j;
                     }
+                    // for (int j = i; j <= n; j += i) {
+                    //     sum += i;
+                    // }
                 }
             }
             return sum;
@@ -52,11 +55,15 @@ public class digit {
         public static  long  alldivisors(int n){
             long sum = 0;
 
-     
             for (int i = 1; i <= n; i++) {
-                
-                for (int j = i; j <= n; j += i) {
-                    sum += i;
+                for (int j = 1; j <= Math.sqrt(i); j++) {
+                    if (i % j == 0) {
+                        sum += j;
+                        int pairDivisor = i / j;
+                        if (j != pairDivisor) {
+                            sum += pairDivisor;
+                        }
+                    }
                 }
             }
     
