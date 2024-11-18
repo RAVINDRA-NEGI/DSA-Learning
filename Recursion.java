@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+
 public class Recursion {
     public static void main(String[] args) {
-  System.out.println(factorial(5));
+  System.out.println(factorialNumbers(56));
 
     }
     public static void run(int n){
@@ -33,5 +35,25 @@ public class Recursion {
       }
 
       return n * factorial(n-1);
+    }
+
+    public static long sumOfNumbers(long n){
+      if (n==0) {
+        return 0;
+      }
+      return n+(sumOfNumbers(n-1));
+    }
+
+    public static void generateFactorials(long n , long fact , int k , ArrayList<Long> result ){
+      if (fact>n){
+        return;
+      }
+      result.add(fact);
+      generateFactorials(n, fact*(k + 1), k+1, result);
+    }
+    static ArrayList<Long> factorialNumbers(long n){
+      ArrayList<Long> result = new ArrayList<>();
+      generateFactorials(n, 1, 1, result);
+      return result;
     }
 }
