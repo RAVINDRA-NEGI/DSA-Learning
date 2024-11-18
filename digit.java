@@ -3,7 +3,7 @@ import java.util.List;
 
 public class digit {
     public static void main(String[] args) {
-        System.out.println(alldivisors(4));
+        System.out.println(factorial(3));
     }
 
     public static boolean armstrongNumber(int n){
@@ -67,6 +67,46 @@ public class digit {
                 }
             }
     
+            return sum;
+        }
+
+
+        public static boolean isAPrimeNumber(int n){
+           int count = 0;
+           if (n == 0 || n == 1){
+            return false;
+           }else{
+            for(int i = 2; i<= n/2; i++){
+                if(n%i == 0){
+                    count++;
+                    return false;
+                }
+            }
+
+           }
+           if (count == 0){
+            return true;
+           }else{
+            return false;
+           }
+}
+
+        public static int hcd(int a , int b){
+            while (a>0 && b>0) {
+                if (a>b){
+                 a=a%b;
+                }else{
+                   b=b%a;
+                }
+            }
+            return(a==0) ? b:a;
+        }
+        public static int factorial(int n){
+            int sum = 1;
+            while (n>0){
+                sum *= n;
+                n = n-1;
+            }
             return sum;
         }
 }
