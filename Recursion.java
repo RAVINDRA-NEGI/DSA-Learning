@@ -1,9 +1,10 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Recursion {
     public static void main(String[] args) {
-  System.out.println(factorialNumbers(56));
-
+  int [] n = {15,58,47,12,69,45};
+    arrayRevers(n);
     }
     public static void run(int n){
       if(n<1){
@@ -55,5 +56,23 @@ public class Recursion {
       ArrayList<Long> result = new ArrayList<>();
       generateFactorials(n, 1, 1, result);
       return result;
+    }
+
+
+    public static void arrayRevers(int [] n){
+          reverse(n, 0, n.length-1);
+          for(int i : n){
+            System.out.print(i + " ");
+          }
+          System.out.println();
+    }
+    public static void reverse(int [] n , int start , int end){
+          if (start>= end) {
+            return;
+          }
+       int temp = n[start];
+       n[start] = n[end];
+       n[end] = temp;
+       reverse(n, start+1, end-1);   
     }
 }
