@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 
 public class Recursion {
     public static void main(String[] args) {
-  int [] n = {15,58,47,12,69,45};
-    arrayRevers(n);
+        System.out.println(isPalindrom("y jafsjdfl"));
     }
     public static void run(int n){
       if(n<1){
@@ -74,5 +74,41 @@ public class Recursion {
        n[start] = n[end];
        n[end] = temp;
        reverse(n, start+1, end-1);   
+      
+
     }
+
+    public static boolean isPalindrom(String s){
+      String processed = preprocess(s);
+
+
+      if (checker(processed, 0, processed.length()-1)) {
+        return true;
+      }else{
+        return false;
+      }
+    }
+
+    public static String preprocess(String s) {
+     
+      return s.replaceAll("[^a-zA-Z0-9]", "").toLowerCase();
+  }
+
+
+    public static boolean checker(String s , int start , int end){
+     
+
+      if (start >= end){
+        return true;
+      }
+      if (s.charAt(start) != s.charAt(end)){
+        return false;
+      }
+      return checker(s, start+1, end-1);
+    }
+
+
+    
+
+    
 }
